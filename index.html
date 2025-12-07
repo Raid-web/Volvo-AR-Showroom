@@ -1,111 +1,1 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <title>Volvo S90 AR Showroom</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-    <style>
-        /* جعل العارض يملأ الشاشة */
-        body { margin: 0; padding: 0; width: 100vw; height: 100vh; }
-        model-viewer { width: 100%; height: 100%; }
 
-        /* تصميم مربعات المعلومات (Hotspots) */
-        .HotspotAnnotation {
-            background-color: white;
-            color: rgba(0, 0, 0, 0.8);
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-            display: block;
-            font-family: sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            max-width: 200px;
-            padding: 8px 12px;
-            position: absolute;
-            transform: translate3d(-50%, calc(-100% + 10px), 0);
-            white-space: normal;
-            text-align: right;
-            border: 1px solid #ccc;
-        }
-
-        /* تصميم خاص لزر الرابط لتمييزه */
-        .link-hotspot {
-            color: #007bff;
-            border: 2px solid #007bff;
-            text-decoration: none;
-            cursor: pointer;
-            z-index: 999;
-        }
-
-        /* إخفاء النقطة البيضاء الافتراضية وجعل الزر هو النص نفسه */
-        .Hotspot {
-            background: transparent;
-            border: 0;
-            box-shadow: none;
-            width: auto;
-            height: auto;
-        }
-
-        /* تنسيق النقطة المرئية (البيضاء) */
-        .Hotspot:not([data-visible]) > * {
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(calc(-100% + 8px));
-            transition: transform 0.3s, opacity 0.3s;
-        }
-    </style>
-</head>
-<body>
-
-<model-viewer src="volvo-car.glb" 
-              ar ar-modes="scene-viewer webxr quick-look" 
-              camera-controls 
-              tone-mapping="neutral" 
-              poster="poster.webp" 
-              shadow-intensity="1">
-
-    <button class="Hotspot" slot="hotspot-1" 
-            data-position="0.23075849092305212m 2.1688412064741875m 4.258726912740385m" 
-            data-normal="0.2357029459184923m 0.9428088220261694m 0.23570245309493723m" 
-            data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">محرك Plug-in Hybrid (PHEV) متطور يجمع بين الأداء والكفاءة. يولد قوة مجمعة تصل إلى 455 حصاناً.</div>
-    </button>
-
-    <button class="Hotspot" slot="hotspot-2" 
-            data-position="2.009535149094976m 1.9515445413703532m 0.3338953130959763m" 
-            data-normal="-0.7071082078970075m -0.7071053544731766m 2.1421493623131654e-7m" 
-            data-visibility-attribute="visible">
-        
-        <a href="interior_view.html" target="_blank" class="HotspotAnnotation link-hotspot">
-            اضغط هنا لاستكشاف المقصورة من الداخل 🛋️
-        </a>
-    </button>
-
-    <button class="Hotspot" slot="hotspot-3" 
-            data-position="2.0427216240468105m 0.8417322662878111m -2.97878866614939m" 
-            data-normal="0.9999999999999344m -3.57627789927616e-7m -5.9604583692982754e-8m" 
-            data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">جنوط ألمنيوم رياضية بقياس 19 إنش. نظام تعليق متطور (Dynamic Chassis).</div>
-    </button>
-
-    <button class="Hotspot" slot="hotspot-4" 
-            data-position="1.532900622670194m 1.6801993887426174m 5.121764750283672m" 
-            data-normal="0.7071099711421487m 2.1421440205927403e-7m 0.7071035912165233m" 
-            data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">المصابيح الأمامية الأيقونية بتصميم "مطرقة ثور". تتميز بتقنية LED Matrix التكيفية.</div>
-    </button>
-
-    <div class="progress-bar hide" slot="progress-bar">
-        <div class="update-bar"></div>
-    </div>
-    <button slot="ar-button" id="ar-button">
-        View in your space
-    </button>
-    <div id="ar-prompt">
-        <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
-    </div>
-</model-viewer>
-
-</body>
-</html>
