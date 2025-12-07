@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <title>Volvo S90 AR Showroom - Final</title>
+    <meta charset="utf-8">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/1.13.0/model-viewer.min.js"></script>
+    <style>
+        /* لجعل شاشة العرض تملأ الهاتف بالكامل */
+        model-viewer {
+            width: 100%;
+            height: 100vh;
+        }
+        body { margin: 0; }
+        /* تصميم زر Hotspot */
+        .HotspotAnnotation {
+            background-color: white;
+            color: #000;
+            border: 2px solid #000;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-decoration: none; 
+            display: inline-block;
+            max-width: 250px;
+            white-space: normal;
+        }
+    </style>
+</head>
+<body>
+
+<model-viewer src="volvo-car.glb" 
+              ar ar-modes="scene-viewer webxr quick-look" 
+              camera-controls tone-mapping="neutral" 
+              shadow-intensity="1">
+    
+    <button class="Hotspot" slot="hotspot-1" 
+            data-position="0.3809246594821553m 2.173916819532219m 4.266418380886384m" 
+            data-normal="0.024826368757366372m 0.9884363285746613m 0.14959035987712466m" 
+            data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">محرك Plug-in Hybrid (PHEV) متطور يولد قوة مجمعة تصل إلى 455 حصاناً.</div>
+    </button>
+    
+    <button class="Hotspot" slot="hotspot-3" 
+            data-position="2.0142214514056707m 1.932383505123129m 0.13673914579768068m" 
+            data-normal="0.9642658746967455m 0.26474058957384966m 0.010185437026008003m" 
+            data-visibility-attribute="visible">
+        <a href="interior_view.html" target="_blank" class="HotspotAnnotation" style="color: #1a73e8; border-color: #1a73e8; font-weight: bold;">
+            انقر للدخول للمقصورة 🛋️ (جولة 360°)
+        </a>
+    </button>
+    
+    <button class="Hotspot" slot="hotspot-4" 
+            data-position="1.609634641959005m 1.6394589973540712m 5.066663416148548m" 
+            data-normal="0.6311307126529068m 0.22256061643710945m 0.7430617710240299m" 
+            data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">المصابيح الأمامية الأيقونية بتصميم "مطرقة ثور" (Thor's Hammer). تتميز بتقنية LED Matrix التكيفية.</div>
+    </button>
+    
+    <button class="Hotspot" slot="hotspot-5" 
+            data-position="2.0455543734758335m 0.8491765866616701m -3.2739598430142793m" 
+            data-normal="0.6110220214502529m -0.7859134958550708m -0.09482650650376404m" 
+            data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">جنوط ألمنيوم رياضية بقياس 19 إنش. نظام تعليق متطور (Dynamic Chassis) يضمن ثباتاً مثالياً.</div>
+    </button>
+    
+    <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+    </div>
+    <button slot="ar-button" id="ar-button">
+        View in your space
+    </button>
+    <div id="ar-prompt">
+        <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+    </div>
+</model-viewer>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Volvo S90 Interior 360°</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <style>
+        /* لجعل العرض يملأ الشاشة بالكامل */
+        #panorama { width: 100%; height: 100vh; }
+        body { margin: 0; }
+        
+        /* تصميم زر نقطة التفاعل الداخلية (اختياري) */
+        .custom-hotspot {
+            width: 30px;
+            height: 30px;
+            background-color: #1a73e8; /* أزرق فولفو */
+            border-radius: 50%;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="panorama"></div>
+
+    <script>
+    pannellum.viewer('panorama', {
+        
+        "type": "equirectangular",
+        "panorama": "car360.png", // <--- اسم الصورة الداخلية
+        
+        "autoLoad": true, 
+        "hfov": 100,
+        "pitch": 0,       
+        "yaw": 0,         
+        "mouseZoom": false,
+
+        // إضافة نص مواصفات المقصورة كنقطة تفاعل داخلية
+        "hotSpots": [
+            {
+                "pitch": -5, 
+                "yaw": -30,
+                "type": "info",
+                "text": "مقصورة مصممة كملاذ للراحة، باستخدام مواد فاخرة مثل جلد Nappa المثقب أو مزيج الصوف الفاخر. المقاعد مصممة هندسياً بالتعاون مع خبراء تقويم العمود الفقري لضمان راحة لا مثيل لها في الرحلات الطويلة.",
+                "cssClass": "custom-hotspot", 
+                "tooltip": "تفاصيل المقصورة" // النص الذي يظهر عند المرور فوق النقطة
+            }
+        ]
+    });
+    </script>
+</body>
+</html>
